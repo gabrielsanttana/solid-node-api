@@ -39,7 +39,7 @@ $ npm dev
 
 #### Single Responsability
 
-A class or function should have only a single responsability (i.e. create a new user).
+A class or function should have only a single responsability, such as creating a new user.
 
 #### Open Closed
 
@@ -56,6 +56,24 @@ Clients should not be forced to depend upon the interfaces that they do not use.
 #### Dependecy Inversion
 
 Program to an interface, not to an implementation.
+
+## 🧱 Architectural Concepts
+
+#### Entities
+
+Models of the domain entities.
+
+#### Use Cases
+
+Main application functionalities, mostly divided by endpoint.
+
+#### Repositories
+
+Acts as an interface between the use cases and the database operations, such as inserts, deletes, and updates.
+
+#### Providers
+
+Outside layer that communicates with external services, such as other APIs.
 
 ## 💁🏽 Contribute
 
