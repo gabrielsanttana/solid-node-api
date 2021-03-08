@@ -1,19 +1,22 @@
 import {EmailProvider, Message} from '../EmailProvider';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export class MailtrapMailProvider implements EmailProvider {
   private transporter: Mail;
 
   constructor() {
     this.transporter = nodemailer.createTransport({
-      host: 'smtp.mailtrap.io',
-      port: 2525,
+      host: process.env.HOST,
+      port: process.env.PORT,
       auth: {
-        user: 'ef39ed4a4aaa0c',
-        pass: 'd3b75d6ef2e282',
+        user: process.env.AUTH_USER,
+        pass: process.env.AUTH_PASS,
       },
-    });
+    } as any);
   }
 
   async sendEmail(message: Message): Promise<void> {
